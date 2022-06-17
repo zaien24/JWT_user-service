@@ -1,5 +1,6 @@
 package com.edujwt.userservice.controller;
 
+import com.edujwt.userservice.vo.Greeting;
 import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -13,6 +14,9 @@ public class UserController {
     private Environment env;
 
     @Autowired
+    private Greeting greeting;
+
+    @Autowired
     public UserController(Environment env) {
         this.env = env;
     }
@@ -24,6 +28,7 @@ public class UserController {
 
     @GetMapping("/welcome")
     public String welcome() {
-        return env.getProperty("greeting.message");
+//        return env.getProperty("greeting.message");
+        return greeting.getMessage();
     }
 }

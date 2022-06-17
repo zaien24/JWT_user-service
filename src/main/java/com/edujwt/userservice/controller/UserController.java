@@ -4,6 +4,7 @@ import com.edujwt.userservice.dto.UserDto;
 import com.edujwt.userservice.service.UserService;
 import com.edujwt.userservice.vo.Greeting;
 import com.edujwt.userservice.vo.RequestUser;
+import com.edujwt.userservice.vo.ResponseUser;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.modelmapper.spi.MatchingStrategy;
@@ -40,13 +41,15 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity createUser(@RequestBody RequestUser user) throws Exception {
+    public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser user) throws Exception {
         ModelMapper mapper = new ModelMapper();
 
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UserDto userDto = mapper.map(user, UserDto.class);
         userService.createUser(userDto);
 
-        return new ResponseEntity(HttpStatus.CREATED);
+        ResponseUser responseUser = mapper.map(userDto, ResponseUser.class);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseUser);
     }
 }

@@ -27,12 +27,22 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        //http.authorizeHttpRequests().antMatchers("/users/**").permitAll();
+        http.addFilter(getAuthenticationFilter());
 
-        /*http.authorizeHttpRequests().antMatchers("/**")
-                .hasIpAddress("127.0.158.249")
+       // http.authorizeHttpRequests().antMatchers("/users/**").permitAll();
+
+
+       /* http.authorizeHttpRequests().antMatchers("/**")
+                .hasIpAddress("192.168.0.8")
                 .and()
                 .addFilter(getAuthenticationFilter()); // 이 필터 통과한 데이터만*/
+      /*  http.authorizeHttpRequests().antMatchers("/users/**")
+                        .hasIpAddress("192.168.0.8")
+                        .and()
+                        .addFilter(getAuthenticationFilter());
+*/
+
+
 
         http.headers().frameOptions().disable();
     }

@@ -10,6 +10,10 @@
 
 #효과
  - 다양한 이기종에서 접속 가능
+ 
+# 실습영상
+ - https://www.youtube.com/watch?v=GHDT2_0pxIM
+ - https://www.youtube.com/watch?v=cYpyK14STkM
 
 #참고자료
  - 인프런 >  spring cloud로 개발하는 마이크로서비스 애플리케이션(MSA)

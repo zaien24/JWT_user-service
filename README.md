@@ -11,7 +11,7 @@
 #효과
  - 다양한 이기종에서 접속 가능
  
-# 실습영상
+#실습영상
  - https://www.youtube.com/watch?v=GHDT2_0pxIM
  - https://www.youtube.com/watch?v=cYpyK14STkM
 
